@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Layout Example</title>
+  <style>
+   
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f5;
+      color: #333;
+    }
+
+    
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "nav nav"
+        "main sidebar"
+        "footer footer";
+      grid-template-columns: 3fr 1fr; /* Main content is wider than sidebar */
+      grid-template-rows: auto auto 1fr auto; /* Header, nav, content, footer */
+      height: 100vh;
+      gap: 10px; /* Adds spacing between grid items */
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    
+    .nav {
+      grid-area: nav;
+      background-color: #007BFF;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    
+    .main {
+      grid-area: main;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow-y: auto; /* Allows scrolling if content overflows */
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #2F4F4F;
+      color: white;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .footer {
+      grid-area: footer;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-areas:
+          "header"
+          "nav"
+          "main"
+          "sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <header class="header">GRID LAYOUT</header>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+    <main class="main">
+      <h1>Layout Grid</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo odit vel sunt quis similique nostrum eligendi corporis suscipit, explicabo odio maiores optio ipsam, adipisci reiciendis quibusdam nesciunt nihil enim nisi.
+      </p>
+     </main>
+    <aside class="sidebar" style="height: 150px; width: 150px;">Sidebar</aside>
+
+  </div>
+</body>
+</html>
