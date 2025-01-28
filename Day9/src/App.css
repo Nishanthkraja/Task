@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f8ff;
+  color: #333;
+}
+
+.app {
+  text-align: center;
+  margin-top: 50px;
+  padding-left: 600px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #007acc;
+}
+
+.input {
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background: #007acc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #005fa3;
+}
+
+.weather {
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather h2 {
+  margin: 0 0 10px;
+  color: #007acc;
+}
+
+.weather p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
