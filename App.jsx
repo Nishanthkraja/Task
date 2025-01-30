@@ -1,93 +1,66 @@
-//clock timer
-// import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 
-// const ClockTimer = () => {
-//   const [time, setTime] = useState(new Date());
+const ProductList = () => {
+  const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-//   useEffect(() => {
-//     const timerId = setInterval(() => {
-//       setTime(new Date());
-//     }, 1000);
+  // Fetch products from the fake store API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("https://fakestoreapi.com/products");
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
 
-  
-//     return () => clearInterval(timerId);
-//   }, []);
+  // Memoized filtered products
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [products, searchTerm]);
 
-//   return (
-//     <div className="clock-container">
-//       <div className="clock">
-//         {time.toLocaleTimeString()}
-//       </div>
-//     </div>
-//   );
-// };
+  // Clear search with useCallback
+  const clearSearch = useCallback(() => {
+    setSearchTerm("");
+  }, []);
 
-// export default ClockTimer;
-
-//weather app
-import React, { useState } from 'react';
-import './App.css';
-
-const WeatherApp = () => {
-  const [city, setCity] = useState('');
-  const [weather, setWeather] = useState(null);
-  const [error, setError] = useState('');
-
-  const fetchWeather = async () => {
-    if (!city) {
-      setError('Please enter a city.');
-      return;
-    }
-
-    try {
-      setError('');
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=YOUR_API_KEY`
-      );
-      if (!response.ok) throw new Error('28 degree celsius');
-      const data = await response.json();
-      setWeather(data);
-    } catch (err) {
-      setWeather(null);
-      setError(err.message);
-    }
-  };
-
-  const handleInputChange = (e) => {
-    setCity(e.target.value);
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    fetchWeather();
-  };
+  if (loading) return <p>Loading products...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="weather-app">
-      <h1>Weather App</h1>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Search</button>
-      </form>
-
-      {error && <p className="error">{error}</p>}
-
-      {weather && (
-        <div className="weather-info">
-          <h2>{weather.name}, {weather.sys.country}</h2>
-          <p>Temperature: {weather.main.temp}°C</p>
-          <p>Weather: {weather.weather[0].description}</p>
-          <p>Humidity: {weather.main.humidity}%</p>
-          <p>Wind Speed: {weather.wind.speed} m/s</p>
-        </div>
-      )}
+    <div>
+      <h1>Product List</h1>
+      <input
+        type="text"
+        value={searchTerm}
+        placeholder="Search products..."
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button onClick={clearSearch}>Clear Search</button>
+      <p>Filtered Products Count: {filteredProducts.length}</p>
+      <ul>
+        {filteredProducts.map((product) => (
+          <li key={product.id}>
+            <h3>{product.title}</h3>
+            <p>${product.price}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default WeatherApp;
+export default ProductList;

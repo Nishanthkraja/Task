@@ -1,91 +1,42 @@
-/*clock timer
-/* .clock-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #282c34, #3a3f47);
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-}
-
-.clock {
-  font-size: 4rem;
-  font-weight: bold;
-  padding: 20px 40px;
-  border: 4px solid #61dafb;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.clock:hover {
-  transform: scale(1.05);
-} */
-
-/* weather app */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #83a4d4, #b6fbff);
-  color: #333;
-}
-
-.weather-app {
-  text-align: center;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 2rem;
+  text-align: center;
 }
 
-h1 {
-  margin-bottom: 1rem;
-  color: #444;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-form {
-  margin-bottom: 1.5rem;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-input {
-  padding: 10px;
-  font-size: 1rem;
-  width: 250px;
-  border: 2px solid #61dafb;
-  border-radius: 5px;
-  outline: none;
-  margin-right: 10px;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: white;
-  background-color: #61dafb;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.card {
+  padding: 2em;
 }
 
-button:hover {
-  background-color: #21a1f1;
+.read-the-docs {
+  color: #888;
 }
-
-.weather-info {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  display: inline-block;
-}
-
-.weather-info h2 {
-  margin: 0 0 1rem;
-}
-
-.error {
-  color: red;
-  font-weight: bold;
-}
-
