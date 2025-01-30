@@ -1,91 +1,60 @@
-/*clock timer
-/* .clock-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #282c34, #3a3f47);
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-}
-
-.clock {
-  font-size: 4rem;
-  font-weight: bold;
-  padding: 20px 40px;
-  border: 4px solid #61dafb;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.clock:hover {
-  transform: scale(1.05);
-} */
-
-/* weather app */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #83a4d4, #b6fbff);
+  background: #f0f8ff;
   color: #333;
 }
 
-.weather-app {
+.app {
   text-align: center;
-  padding: 2rem;
+  margin-top: 50px;
+  padding-left: 600px;
 }
 
 h1 {
-  margin-bottom: 1rem;
-  color: #444;
+  font-size: 2.5rem;
+  color: #007acc;
 }
 
-form {
-  margin-bottom: 1.5rem;
-}
-
-input {
+.input {
   padding: 10px;
   font-size: 1rem;
-  width: 250px;
-  border: 2px solid #61dafb;
-  border-radius: 5px;
-  outline: none;
   margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-button {
+.btn {
   padding: 10px 20px;
   font-size: 1rem;
-  color: white;
-  background-color: #61dafb;
+  color: #fff;
+  background: #007acc;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #21a1f1;
+.btn:hover {
+  background: #005fa3;
 }
 
-.weather-info {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.8);
+.weather {
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 10px;
+  padding: 20px;
   display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.weather-info h2 {
-  margin: 0 0 1rem;
+.weather h2 {
+  margin: 0 0 10px;
+  color: #007acc;
 }
 
-.error {
-  color: red;
-  font-weight: bold;
+.weather p {
+  margin: 5px 0;
+  font-size: 1.1rem;
 }
-
